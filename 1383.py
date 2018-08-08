@@ -1,5 +1,6 @@
 # Uri-Questions
 #Python
+#Sudoku
 for n in range(int(input())): #números de casos testes
     sudoku = [[int(x) for x in input().split()]for y in range(9)]
     solve = True
