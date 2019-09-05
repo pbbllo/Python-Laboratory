@@ -1,7 +1,14 @@
 class Grafo:
     def __init__(self):
         self.lista_Vertices = []  # Stores the vertices
-        self.matriz = []
+        self.matriz = [[0,1,1,0,0,0,0,0],
+                       [1,0,1,0,1,1,1,0],
+                       [1,1,0,1,1,0,0,0],
+                       [0,0,1,0,1,1,0,1],
+                       [0,1,1,1,0,1,0,0],
+                       [0,1,0,1,1,0,1,0],
+                       [0,1,0,0,0,1,0,1],
+                       [0,0,0,1,0,0,1,0]]
 
     def insert_listaVertices(self, vertice):
         self.lista_Vertices.append(vertice)
@@ -9,7 +16,7 @@ class Grafo:
     def getLista_Vertices(self):
         return self.lista_Vertices
 
-    def add_to_matriz(self,lista):
+    def add_to_matriz(self, lista):
         self.matriz.append(lista)
 
     def getMatriz(self):
@@ -17,8 +24,8 @@ class Grafo:
 
 
 class Vertice:
-    def __init__(self):
-        self.info = None
+    def __init__(self, info):
+        self.info = info
         self.color = 'None'
         self.linked = []
 
@@ -36,6 +43,7 @@ class Vertice:
 
     def setLinked(self, vertice):
         self.linked.append(vertice)
+
 
 def recursão(country):
     colors_current = []  # List unavailable colors of the country
@@ -60,32 +68,30 @@ def recursão(country):
 
     return 0
 
-number_countries = int(input()) #numbers of countries
+
+number_countries = 8  # numbers of countries
 
 mapa = Grafo()
 
 colors = [x for x in range(number_countries)]
 
 for i in range(number_countries):
-    lista = [int(x) for x in input().split()]
-    mapa.add_to_matriz(lista) #add to matriz of the grafo
     A = Vertice(i)
     mapa.insert_listaVertices(A)
 
+
 matriz = mapa.getMatriz()
+vertices = mapa.getLista_Vertices()
 
-for i in range(number_countries):
-    for j in range():
-	
+for i in range(number_countries): #Link the vertices
+    for j in range(i + 1, number_countries):
+        if matriz[i][j] == 1:
+            vertices[i].setLinked(vertices[j])
+            vertices[j].setLinked(vertices[i])
 
-
-'''
-for country in countries:
+for country in vertices: #Make the answer
     number = recursão(country)
-
-for country in countries:
+for country in vertices:
     if country.getColor() > number:
         number = country.getColor()
-print(number)
-
-'''
+print(number + 1)
