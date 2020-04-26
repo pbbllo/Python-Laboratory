@@ -12,7 +12,7 @@ total = 0
 for word in instance:
     
     if word == "FIM":
-        while word != "INICIO":
+        while word != "INICIO" and word != "LOOP":
             word = pile.pop()
             if word.isnumeric():
                 num = int(word)
