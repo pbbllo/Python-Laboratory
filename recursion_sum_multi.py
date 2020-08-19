@@ -17,3 +17,5 @@ def multi(numero1, numero2):
         return soma(numero1,multi(numero1, numero2-1))       
 
 print(multi(3,5))
+
+#num2 deve ser menor ou igual que num1
