@@ -4,7 +4,7 @@ def suc(numero):
 
 def soma(numero1, numero2):
     if numero2 == 0:
-        return somafinal
+        return numero1
     else:
         return soma(suc(numero1), numero2-1)
         
