@@ -1,21 +1,21 @@
-def suc(numero):
-    sucessor = numero+1
+def suc(num):
+    sucessor = num+1
     return sucessor
 
-def soma(numero1, numero2):
-    if numero2 == 0:
-        return numero1
+def sum(num1, num2):
+    if num2 == 0:
+        return num1
     else:
-        return soma(suc(numero1), numero2-1)
+        return sum(suc(num1), num2-1)
         
-def multi(numero1, numero2):
-    if numero2 == 1:
-        return numero1
-    elif numero2 == 0 or numero1 == 0:
+def multi(num1, num2):
+    if num2 == 1:
+        return num1
+    elif num2 == 0 or num1 == 0:
         return 0
     else:
-        return soma(numero1,multi(numero1, numero2-1))       
+        return sum(num1,multi(num1, num2-1))       
 
-print(multi(3,5))
+print(multi(5,5))
 
 #num2 deve ser menor ou igual que num1
