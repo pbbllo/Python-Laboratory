@@ -1,7 +1,7 @@
 import numpy as np
 
-funcaoF = input('Digite a função f(x), "por exemplo --> x ** 2": ' )
-funcaoG = input('Digite a função g(x), "por exemplo --> 2 ** x": ')
+funcaoF = input('Enter the function f (x), "for example -> x ** 2": ')
+funcaoG = input('Enter the function g (x), "for example -> 2 ** x": ')
 
 def f(x, funcaoF):
     return eval(funcaoF)
@@ -9,8 +9,8 @@ def f(x, funcaoF):
 def g(x, funcaoG):
     return eval(funcaoG)
 
-a,b = [int(x) for x in input('Digite os valores de a e b para o intervalo no eixo x, por exemplo --> 0 10: ').split()]
-N = int(input('Digite o números de interações, quanto maior mais preciso o resultado: '))
+a,b = [int(x) for x in input('Enter the values of a and b for the interval on the x-axis, for example -> 0 10: ').split()]
+N = int(input('Enter the number of interactions, the higher the more accurate the result: '))
 
 pontoDentro = 0
 x = a + (b-a) * np.random.uniform(size=N)
