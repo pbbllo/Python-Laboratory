@@ -45,7 +45,7 @@ class Vertice:
         self.linked.append(vertice)
 
 
-def recursão(country):
+def recursao(country):
     colors_current = []  # List unavailable colors of the country
     country_color = country.getColor()  # Get current color of the country
     for province in country.getLinked():  # Browse countries linked to the current country
@@ -90,7 +90,7 @@ for i in range(number_countries): #Link the vertices
             vertices[j].setLinked(vertices[i])
 
 for country in vertices: #Make the answer
-    number = recursão(country)
+    number = recursao(country)
 for country in vertices:
     if country.getColor() > number:
         number = country.getColor()
