@@ -6,14 +6,14 @@ Enter = INICIO OP 199 LOOP 10 LOOP 10 OP 1 FIM FIM FIM / Out = 299
 '''
 
 instance = input().split()
-pile = []
+stack = []
 total = 0
 
 for word in instance:
     
     if word == "FIM":
         while word != "INICIO" and word != "LOOP":
-            word = pile.pop()
+            word = stack.pop()
             if word.isnumeric():
                 num = int(word)
             elif word == "OP":
@@ -22,7 +22,7 @@ for word in instance:
                 total *= num
                 
     else:
-        pile.append(word)
+        stack.append(word)
         
 print(total)
 

@@ -56,7 +56,7 @@ def recursao(country):
                 if color not in colors_current:  # Check that it's not in list unavailable
                     country.setColor(color)  # Set the new color
                     break
-            recursão(province)  # Enter on the route
+            recursao(province)  # Enter on the route
         else:
             colors_current.append(
                 province_color)  # Just add to the list unavailable don't enter on the route, because the country are colored

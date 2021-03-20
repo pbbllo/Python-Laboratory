@@ -1,49 +1,43 @@
-# Uri-Questions
-#Python
-#Program to confirm the answer
-for n in range(int(input())): #números de casos testes
-    sudoku = [[int(x) for x in input().split()]for y in range(9)]
-    solve = True
-    for l in sudoku:#Confere as linhas
-        if solve:
-            for ll in l:
-                if l.count(ll) > 1:
-                    solve = False
-        else: break;
-    if solve:#Confere as colunas
-        for c in range(9):
-            coluna = [sudoku[a][c] for a in range(9)]
-            if solve:
-                for cc in coluna:
-                    if coluna.count(cc) > 1:
-                        solve = False
-            else: break;
-    if solve:#Confere os blocos de 3x3
-        line = start = 0
-        bloco = 0
-        limite = 3
-        while bloco < 9:
-            cont = 0
-            hai = []
-            if solve:
-                if bloco % 3 == 0:
-                    line = 0
-                    start = bloco
-                    limite = bloco + 3
-                while cont < 3:
-                    cont += 1
-                    for z in range(start,limite):
-                        hai.append(sudoku[line][z])
-                    line += 1
-                for read in hai:
-                    if hai.count(read) > 1:
-                        solve = False
-                bloco += 1
-            else: break;
-    print('Instancia %d'%(n+1))
-    if solve:
-        print('SIM')
-        print()
+#Program to confirm the sudoku 9x9 answer
+
+def lines(array): #Check the lines, complexity O(1)
+    if sum(array) == 45:
+        return True
     else:
-        print('NAO')
-        print()
+        return False
+
+def columns(column, sudoku): #Check the colunms, complexity O(1)
+    somatory = 0
+    for line in range(9):
+        somatory += sudoku[line][column]
+    if somatory == 45:
+        return True
+    else:
+        return False
+
+def isCorrect(sudoku): #Complexity O(1)
+    solve = True
+    iteration = 0
+    while solve and iteration < 9:            
+        if not lines(sudoku[iteration]):
+            solve = False
+        if solve:
+            if not columns(iteration, sudoku):
+                solve = False
+        
+        iteration += 1
+
+    if solve:
+        print("\nThe sudoku answer is correct! :)")
+    else:
+        print("\nThe sudoku answer is wrong! :(")
+        print("Look to the line {} or column {} to fix the error".format(iteration + 1, iteration + 1))
+
+
+print("Input the lines of the sudoku, for example --> 1 2 3 4 5 6 7 8 9")
+sudoku = [
+    [int(i) for i in input("Line {}: ".format(j + 1)).split()]
+    for j in range(9)
+    ]
+
+isCorrect(sudoku)
