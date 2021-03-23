@@ -1,4 +1,4 @@
-#Program to confirm the sudoku 9x9 answer
+#Program to check the sudoku 9x9 answer
 
 def lines(array): #Check the lines, complexity O(1)
     if sum(array) == 45:
