@@ -73,7 +73,7 @@ class DoublyLinked:
             raise Exception("The list is empty")
 
         if index >= self._size:
-            raise IndexError
+            raise IndexError("Index of out list range")
             
         if index == 0: #Complexity O(1)
             node = self._head
