@@ -26,8 +26,8 @@ class Node:
         return str(self._data)
 
 class DoublyLinked:
-    def __init__(self, size = 0):
-        self._size = size
+    def __init__(self):
+        self._size = 0
         self._head = None
         self._tail = None
 
@@ -37,14 +37,11 @@ class DoublyLinked:
 
         output = "["
         currentNode = self._head
-        currentIndex = 0
         while currentNode != None:
-            if (currentIndex + 1) == self._size:
+            if currentNode == self._tail:
                 output += currentNode.toString() + "]"
             else:
-                output += currentNode.toString() + ","
-
-            currentIndex += 1    
+                output += currentNode.toString() + ","   
             currentNode = currentNode.getRight()
             
         return output
@@ -95,12 +92,24 @@ class DoublyLinked:
         return currentNode.getData()
         
     def removeFirst(self):
-        self._head = self._head.getRight()
+        if self.isEmpty():
+            raise Exception("The list is empty")
+        if self._size == 1:
+            self._head = self._tail = None
+        else:
+            self._head = self._head.getRight()
+            self._head.setLeft(None)
         self._size -= 1
     
     def removeLast(self):
-        self._tail = self._tail.getLeft()
-        self._tail.setRight(None)
+        if self.isEmpty():
+            raise Exception("The list is empty")
+        if self._size == 1:
+            self._head = self._tail = None
+        else:
+            self._tail = self._tail.getLeft()
+            self._tail.setRight(None)
+
         self._size -= 1
 
     def add(self, data):
@@ -146,7 +155,8 @@ class DoublyLinked:
         
         self._size += 1
 
-'''Test Cases'''
+'''
+*---------Test Cases--------*
 
 doubly = DoublyLinked()
 doubly.add(1)
@@ -166,3 +176,5 @@ print(doubly)
 doubly.removeLast()
 
 print(doubly)
+
+'''

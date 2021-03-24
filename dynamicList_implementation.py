@@ -5,7 +5,7 @@ class Array:
         self._array = [None]
 
         if capacity < 0:
-            print("Illegal capacity: {}".format(capacity))
+            raise Exception("Illegal capacity: {}".format(capacity))
         else:
             self._array = [None] * capacity
     
@@ -53,8 +53,7 @@ class Array:
     
     def delete(self, index):
         if (index >= self._tam) and (index < 0):
-            print("Invalid index: {}".format(index))
-            return -1
+            raise IndexError("Invalid index: {}".format(index))
         data = self._array[index]
         newArray = [None] * (self._tam - 1)
         j = -1

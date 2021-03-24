@@ -19,8 +19,8 @@ class Node:
         return str(self._data)
 
 class SinglyLinked:
-    def __init__(self, size = 0):
-        self._size = size
+    def __init__(self):
+        self._size = 0
         self._head = None
         self._tail = None
 
@@ -30,20 +30,22 @@ class SinglyLinked:
         
         output = "["
         currentNode = self._head
-        currentIndex = 0
+
         while currentNode != None:
-            if (currentIndex + 1) == self._size:
+            if currentNode == self._tail:
                 output += currentNode.toString() + "]"
             else:
-                output += currentNode.toString() + ","
-
-            currentIndex += 1    
+                output += currentNode.toString() + "," 
             currentNode = currentNode.getRight()
             
         return output
 
     def length(self):
         return self._size
+
+    def clear(self):
+        self._head = self._tail = None
+        self._size = 0
     
     def isEmpty(self):
         return self._head == None
@@ -73,11 +75,15 @@ class SinglyLinked:
         if index == 0: #Complexity O(1)
             node = self._head
             self.removeFirst()
-            return node.getData()
+            return node.toString()
+        
+        if index == (self._size - 1):
+            node = self._tail
+            self.removeLast()
+            return node.toString()
 
         currentIndex = 0
         currentNode = self._head
-        nodeBeforeIndex = None
         while currentIndex != index: #Complexity O(n)
             nodeBeforeIndex = currentNode
             currentNode = currentNode.getRight()
@@ -90,15 +96,27 @@ class SinglyLinked:
         return currentNode.getData()
     
     def removeFirst(self):
+        if self.isEmpty():
+            raise Exception("The list is empty")
         self._head = self._head.getRight()
         self._size -= 1
     
-    def removeLast(self):
-        self.delete(self._size - 1)
+    def removeLast(self): #Complexity O(n)
+        if self.isEmpty():
+            raise Exception("The list is empty")
+        if self._size == 1:
+            self._head = self._tail = None
+        else:
+            currentNode = self._head
+            while currentNode.getRight() != self._tail:
+                currentNode = currentNode.getRight()
+            self._tail = currentNode
+            currentNode.setRight(None)
+
+        self._size -= 1
 
     def add(self, data): #Complexity O(1)
         node = Node(data)
-
         if self.isEmpty():
             self._head = self._tail = node    
         else:
@@ -135,7 +153,8 @@ class SinglyLinked:
         
         self._size += 1
 
-'''Test Cases'''
+'''
+*-------TESTE CASES----------*
 
 singly = SinglyLinked()
 print(singly.isEmpty())
@@ -165,3 +184,7 @@ print(singly)
 
 singly.removeLast()
 print(singly)
+
+singly.clear()
+print(singly)
+'''
