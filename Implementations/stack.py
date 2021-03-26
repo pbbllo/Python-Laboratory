@@ -1,4 +1,4 @@
-from doubly_linked_list import DoublyLinked
+from Implementations.doubly_linked_list import DoublyLinked
 
 class Stack(DoublyLinked):
     def __init__(self):
@@ -14,6 +14,9 @@ class Stack(DoublyLinked):
         return super().add(data)
 
     def peek(self):
+        if self.isEmpty():
+            return "None"
+            
         return self._tail.toString()
 
     def length(self):
@@ -21,6 +24,9 @@ class Stack(DoublyLinked):
 
     def isEmpty(self):
         return super().isEmpty()
+
+'''
+*-------TESTE CASES-------*
 
 stack = Stack()
 
@@ -43,4 +49,4 @@ stack.pop()
 stack.pop()
 print(stack)
 
-
+'''

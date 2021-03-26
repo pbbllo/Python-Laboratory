@@ -73,6 +73,9 @@ class Array:
                 return i
         return -1
 
+'''
+*-------TESTE CASES-------*
+
 dynamicList = Array(0)
 print(dynamicList)
 
@@ -86,3 +89,5 @@ print(dynamicList.get(0))
 
 dynamicList.set(1,3)
 print(dynamicList.get(1))
+
+'''

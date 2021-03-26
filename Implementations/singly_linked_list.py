@@ -154,7 +154,7 @@ class SinglyLinked:
         self._size += 1
 
 '''
-*-------TESTE CASES----------*
+*-------TESTE CASES-------*
 
 singly = SinglyLinked()
 print(singly.isEmpty())

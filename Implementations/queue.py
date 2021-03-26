@@ -1,4 +1,4 @@
-from doubly_linked_list import DoublyLinked
+from Implementations.doubly_linked_list import DoublyLinked
 
 class Queue(DoublyLinked):
     def __init__(self):
@@ -14,6 +14,8 @@ class Queue(DoublyLinked):
         return super().removeFirst()
     
     def peek(self):
+        if self.isEmpty():
+            return "None"
         return self._head
 
     def length(self):
@@ -22,7 +24,8 @@ class Queue(DoublyLinked):
     def isEmpty(self):
         return super().isEmpty()
 
-
+'''
+*-------TESTE CASES-------*
 queue = Queue()
 queue.enqueue(1)
 queue.enqueue(2)
@@ -33,3 +36,5 @@ print(queue)
 queue.dequeue()
 print(queue.length())
 print(queue)
+
+'''

@@ -156,7 +156,7 @@ class DoublyLinked:
         self._size += 1
 
 '''
-*---------Test Cases--------*
+*-------TESTE CASES-------*
 
 doubly = DoublyLinked()
 doubly.add(1)
