@@ -1,3 +1,6 @@
+import sys
+sys.path.append('/Users/Shiro/Desktop/Python')
+
 from Implementations.doubly_linked_list import DoublyLinked
 
 class Stack(DoublyLinked):
@@ -11,7 +14,7 @@ class Stack(DoublyLinked):
         return super().removeLast()
     
     def push(self, data):
-        return super().add(data)
+        super().add(data)
 
     def peek(self):
         if self.isEmpty():
@@ -25,8 +28,8 @@ class Stack(DoublyLinked):
     def isEmpty(self):
         return super().isEmpty()
 
-'''
-*-------TESTE CASES-------*
+
+#*-------TESTE CASES-------*
 
 stack = Stack()
 
@@ -49,4 +52,4 @@ stack.pop()
 stack.pop()
 print(stack)
 
-'''
+

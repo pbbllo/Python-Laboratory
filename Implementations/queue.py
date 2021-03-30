@@ -1,3 +1,5 @@
+import sys
+sys.path.append('/Users/Shiro/Desktop/Python')
 from Implementations.doubly_linked_list import DoublyLinked
 
 class Queue(DoublyLinked):
