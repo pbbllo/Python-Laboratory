@@ -28,7 +28,7 @@ class Stack(DoublyLinked):
     def isEmpty(self):
         return super().isEmpty()
 
-
+'''
 #*-------TESTE CASES-------*
 
 stack = Stack()
@@ -52,4 +52,4 @@ stack.pop()
 stack.pop()
 print(stack)
 
-
+'''
