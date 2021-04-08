@@ -14,7 +14,7 @@ input: ]        output: Invalid
 '''
 '''---Path to Implementations module---'''
 import sys
-sys.path.append('/Users/Shiro/Desktop/Python')
+sys.path.append('/home/shiro/Desktop/Python')
 
 from Implementations.stack import Stack
 
