@@ -1,27 +1,28 @@
-lines, columns = map(int, input().split())
-matriz = [input().split() for i in range(lines)]
-coordinates = []
-start = 0
-
-for line in range(lines):                               # O(n ** 2)
-    for column in range(columns):
-        if matriz[line][column] != "0":
-            coordinate = (matriz[line][column], line, column)
-            coordinates.append(coordinate)
-        if matriz[line][column] == "R":
-            start = len(coordinates) - 1
-
-def minDistance(coordinates, p, lines, columns)
+def minDistance(coordinates, p, lines, columns):        # O(n) + O(n) = O(n + n) = O(2n) => O(n)
+    if len(coordinates) == 0:
+        return ""
+    
     distance = lines * columns
     for point in coordinates:
-        a = p[1] - point[1]
-        b = p[2] - point[2]
-        soma = abs(a + b)
-        
+        soma = abs(p[1] - point[1]) + abs(p[2] - point[2])
         if soma <= distance:
-            return 0
+            travel = point
+            distance = soma
 
+    coordinates.remove(travel)
+    return travel[0] + " " + minDistance(coordinates, travel, lines, columns)
 
-print(coordinates)
+lines, columns = map(int, input().split())
+matriz = []
+coordinates = []
+for l in range(lines):                                 # O(n ** m) =>  O(n²)
+    line = input().split()
+    matriz.append(line)
+    for c in range(columns):
+        if line[c] != "0":
+            coordinates.append((line[c], l, c))
+        if line[c] == "R":
+            start = (line[c], l, c)
 
-#print(minDistance(matriz, lines, columns))
+coordinates.remove(start)
+print(minDistance(coordinates, start, lines, columns))
