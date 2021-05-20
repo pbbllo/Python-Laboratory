@@ -19,7 +19,7 @@ def betterDistance(array, string = ""):                     #O(n²)
         distance = 0
         points = ""
         before_p = path[0]
-        for p in enumerate(path[1:]):
+        for p in path[1:]:
             distance += abs(before_p[1] - p[1]) + abs(before_p[2] - p[2])
             points += p[0] + " "
             before_p = p
